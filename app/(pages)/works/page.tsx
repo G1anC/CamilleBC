@@ -1,5 +1,5 @@
 
-import Menu from "../../components/Menu";
+import Menu from "../../components/menu";
 
 const Works = () => {
     return (

@@ -2,9 +2,9 @@
 
 import React, { useEffect, useRef } from "react";
 import hoverEffect from "hover-effect";
-import Image from "next/image";
-import * as THREE from "three";
-import {gsap, TweenMax} from "gsap";
+// import Image from "next/image";
+// import * as THREE from "three";
+// import {gsap, TweenMax} from "gsap";
 
 import Menu from "./components/menu";
 import "./scroll.css";
