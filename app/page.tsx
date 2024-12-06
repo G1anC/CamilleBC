@@ -1,101 +1,78 @@
+'use client'
+
+import React, { useEffect, useRef } from "react";
+import hoverEffect from "hover-effect";
 import Image from "next/image";
+import * as THREE from "three";
+import {gsap, TweenMax} from "gsap";
+
+import Menu from "./components/menu";
+import "./scroll.css";
+
+
+const I = ({children}: {children: React.ReactNode}) => <span className="font-[family-name:var(--font-ppuli)] font-extralight text-xl ">{children}</span>;
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    const imageRef = useRef(null);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    useEffect(() => {
+        if (!imageRef.current) {
+            console.error("Invalid imageRef");
+            return;
+        }
+        console.log("imageRef", imageRef.current);
+        new hoverEffect({
+            parent: imageRef.current,
+            intensity: 0.3,
+            image1: "/me.jpg",
+            image2: "/me.jpg",
+            displacementImage: "/7.jpg",
+        });
+    }, []);
+
+    return (
+        <div className="h-screen w-screen overflow-hidden font-[family-name:var(--font-helvetica)]">
+            <Menu />
+            <div className="w-screen h-screen flex items-center justify-center gap-x-8 overflow-hidden">
+                <div className="w-full h-full flex justify-end">
+                    <div ref={imageRef} className="w-2/3 h-full object-cover bg-gray-100/10 "/>
+                </div>
+
+                <div className="flex flex-col items-start justify-center text-xl h-2/3 w-full">
+                    <div>Welcome to my <I> Portfolio</I> !</div>
+                    <div><br/></div>
+                    <div>I’m a designer and photographer from <I>France </I>.</div>
+                    <div>I’m focused on  <I>(re)shaping</I>  the way you’re seen.</div>
+                    <div><br/></div>
+                    <div>Granting <I>elegancy</I> and <I>creativity</I></div>
+                    <div>into your branding and bringing it to <I>life</I>.</div> 
+                </div>
+                <div className="w-full absolute top-[-16px] flex items-end z-[-3] text-2xl justify-center left-0 h-[72%]">
+                    <div className="w-full h-auto flex items-center justify-center">
+                        <div className="w-1/2 flex items-end p-4 pl-8 justify-start ">
+                            <I>@24</I>
+                        </div>
+                        <div className="w-1/2 flex items-end justify-end pr-8 p-4">
+                            <I>{"\(01\)"}</I>
+                        </div>
+                    </div>
+                </div>
+            
+                <div className="w-full absolute bottom-4 flex flex-col items-center justify-center left-0 h-[28%] border-t border-white/10">
+                    <div className="relative h-full w-full overflow-hidden">
+                        <ul className="unlist list-none select-none absolute h-full inline-flex items-center border-y border-white/10 ">
+                            {Array.from({ length: 50 }).map((_, i) => (
+                                <li key={i} className="font-bold text-[250px] flex-shrink-0 pt-8 px-8 tracking-[-10px]">
+                                    <span className="text-[#B2F5A5] text-[230px] mr-16 font-extralight  tracking-normal font-[family-name:var(--font-ppuli)]">
+                                        Camille
+                                    </span>
+                                    BONNET-CREVEL
+                                </li>
+                            ))}
+                        </ul>
+                    </div>  
+                </div>
+            </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    );
 }

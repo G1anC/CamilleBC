@@ -1,0 +1,12 @@
+
+
+@keyframes scroll {
+    to {
+        transform: translateX(calc(-100% - 80px));
+    }
+}
+
+.unlist {
+    clip-path: inset(0 0 0 0);
+    animation: scroll 1600s linear infinite;
+}
