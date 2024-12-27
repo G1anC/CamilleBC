@@ -1,0 +1,34 @@
+.link {
+    transition: .5s ease-out;
+    font-size: 150px;
+    height: 150px;
+    filter: blur(10px) brightness(75%);
+}
+
+.link:hover {
+    filter: blur(0) brightness(100%);
+    font-size: 250px;
+    height: 250px;
+}
+
+.link:hover ~ .bg {
+    background-position: right center;
+}
+
+.link:hover + *, .link:has(+ *:hover) {
+    filter: blur(5px) brightness(75%);
+    font-size: 150px;
+    height: 150px;
+}
+
+.link:hover + * + *, .link:has(+ * + *:hover){
+    filter: blur(10px) brightness(50%);
+    font-size: 100px;
+    height: 100px;
+}
+
+.link:hover + * + * + *, .link:has(+ * + * + *:hover){
+    filter: blur(15px) brightness(25%);
+    font-size: 75px;
+    height: 75px;
+}
