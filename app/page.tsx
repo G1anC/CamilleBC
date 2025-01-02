@@ -6,17 +6,15 @@ import {gsap} from "gsap";
 
 import Menu from "./components/menu";
 import "./scroll.css";
-import Header from "./components/header";
 
 const I = ({children}: {children: React.ReactNode}) => <span className="font-[family-name:var(--font-ppuli)] font-extralight text-xl ">{children}</span>;
 
 export default function Home() {
     const imageRef = useRef(null);
-
-
+    const titleContainer = useRef(null);
+    const letters = "CAMILLE".split("");
     useEffect(() => {
         const tl = gsap.timeline();
-
         if (!imageRef.current) return;
         new hoverEffect({
             parent: imageRef.current,
@@ -34,58 +32,30 @@ export default function Home() {
 
     return (
         <div className="h-screen w-screen relative overflow-hidden font-[family-name:var(--font-helvetica)]">
-            <div className="w-full h-full absolute top-0 left-0">
-                <div className="w-full h-full opacity-50" style={{
-                    backgroundImage: "url(/bg.png)",
-                    backgroundSize: "cover",
-                    backgroundPosition: "top",
-                    filter: "blur(40px)",
-                    zIndex: -1,
-                    opacity: "50%",
-                }}></div>
-            </div>
+
             <Menu />
             <div className="w-screen h-screen flex items-center justify-center gap-x-8 overflow-hidden">
-                <div className="w-full h-full flex justify-end">
-                    <div className="w-2/3 h-full inset-0 relative overflow-hidden">
-                        <div ref={imageRef} className="me w-full h-full object-cover"/>
+                <div className="w-full absolute bottom-0 flex flex-col items-center justify-center left-0 h-full z-[50] ">
+                    <div className="relative h-full w-full overflow-hidden inset-0">
+                        <ul ref={titleContainer} id="text-container" className="unlist list-none select-none absolute h-full inline-flex items-center">
+                            {Array.from({length: 50}).map((_, i) => (
+                                <li key={i}
+                                    className=" flex items-center justify-center flex-shrink-0 px-8 tracking-[-10px] font-[family-name:var(--font-dxsitrus)] " style={{
+                                        height: "calc(100vw/3)",
+                                        fontSize: "calc(100vw/3)",
+                                        lineHeight: "1",
+                                        transform: "translateY(50%)", // Adjust alignment to correct positioning
+                                }}>
+                                    {letters.map((letter, j) => (
+                                        <span key={j} className="welcome">{letter}</span>
+                                    ))}
+                                </li>
+
+                            ))}
+                        </ul>
                     </div>
                 </div>
 
-                <div className="flex flex-col items-start justify-center text-xl h-2/3 w-full">
-                    <div className="flex items-start flex-col justify-center gap-y-8">
-                        <div className="relative inset-0 overflow-hidden">
-                            <div className="welcome">Welcome to my <I> Portfolio</I> !</div>
-                        </div>
-                        <div className="">
-                            <div className="relative inset-0 overflow-hidden">
-                                <div className="welcome">I’m a designer and photograph from <I>France </I>.</div>
-                            </div>
-                            <div className="relative inset-0 overflow-hidden">
-                                <div className="welcome">I’m focused on <I>(re)shaping</I> the way you’re seen.</div>
-                            </div>
-                            <div className="relative inset-0 overflow-hidden">
-                                <div className="welcome"></div>
-                            </div>
-                            <div className="relative inset-0 overflow-hidden">
-                                <div className="welcome">Granting <I>elegancy</I> and <I>creativity</I></div>
-                            </div>
-                            <div className="relative inset-0 overflow-hidden">
-                                <div className="welcome">into your branding and bringing it to <I>life</I>.</div>
-                            </div>
-                            <div className="relative inset-0 overflow-hidden">
-                                <div className="welcome"></div>
-                            </div>
-                        </div>
-                        <div className={"relative inset-0 overflow-hidden"}>
-                            <button
-                                className="welcome border rounded-full border-[#B2F5A5] p-2 px-4 text-[#B2F5A5] hover:bg-[#B2F5A5] hover:text-black duration-200 transition-all">Contact me
-                            </button>
-
-                        </div>
-                    </div>
-
-                </div>
                 <div className="w-full absolute  flex items-end z-[-3] text-2xl justify-center left-0 h-[50%]">
                     <div className="w-full h-auto flex items-center justify-center">
                         <div className="w-1/2 flex items-end p-4 pl-8 justify-start ">
@@ -96,20 +66,16 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-            
-                <div className="w-full absolute bottom-0 flex flex-col items-center justify-center left-0 h-[28%] ">
-                    <div className="relative h-full w-full overflow-hidden inset-0">
-                        <ul className="unlist list-none select-none absolute h-full inline-flex items-center">
-                            {Array.from({ length: 50 }).map((_, i) => (
-                                <li key={i} className="font-bold text-[250px] flex items-center justify-center flex-shrink-0 pt-32 h-full px-8 tracking-[-5px]">
-                                    <span className="text-[#B2F5A5] text-[230px] mr-16 font-extralight tracking-normal font-[family-name:var(--font-ppuli)]" style={{textShadow: "0px 0px 10px #B2F5A5"}}>
-                                        Camille
-                                    </span>
-                                    BONNET-CREVEL
-                                </li>
-                            ))}
-                        </ul>
-                    </div>  
+
+                <div className="w-full h-full absolute top-0 left-0">
+                    <div className="w-full h-full" style={{
+                        backgroundImage: "url(/bg.png)",
+                        backgroundSize: "cover",
+                        backgroundPosition: "top",
+                        filter: "blur(40px)",
+                        zIndex: -1,
+                        opacity: "50%",
+                    }}></div>
                 </div>
             </div>
         </div>

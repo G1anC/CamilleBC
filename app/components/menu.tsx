@@ -31,7 +31,7 @@ const Menu = () => {
 
                 // Animate the background image
                 gsap.to(bgElement, {
-                    duration: 1,
+                    duration: 0.5,
                     ease: "power2.Out",
                     y: yOffset + "px",
                 });
@@ -43,8 +43,7 @@ const Menu = () => {
     React.useEffect(() => {
         gsap.to(".head", {
             opacity: 1,
-            duration: 1,
-
+            duration: 0.5,
             stagger: 0.1
         })
     }, [open])
@@ -61,10 +60,10 @@ const Menu = () => {
                     </Link>
                 </div>
                 <div className={"w-1/2 flex items-center gap-x-8 justify-end"}>
-                    <button className={`${!open && "border border-[#B2F5A5] hover:bg-[#B2F5A5] text-[16px] text-[#B2F5A5] hover:text-black"} hover:scale-110 head opacity-0 rounded-full p-3 px-4 duration-200 transition-all`}
+                    <button className={` hover:scale-110 head opacity-0 rounded-full p-3 px-4 duration-200 transition-all`}
                             onClick={() => setOpen(!open)}
                     >
-                        {!open ? "Menu" : <div className={""}><img width={24} height={24} src={'/cross.svg'} alt={"close"}/></div>}
+                        {!open ? <div className={""}><img width={24} height={24} src={'/menu.svg'} alt={"open"}/></div> : <div className={""}><img width={24} height={24} src={'/cross.svg'} alt={"close"}/></div>}
                     </button>
                 </div>
             </div>

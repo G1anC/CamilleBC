@@ -12,6 +12,16 @@ const PPEditorialUltraThinItalic = localFont({
     variable: "--font-ppuli",
 })
 
+const DxSitrus = localFont({
+    src: "./fonts/DxSitrus-Expanded.otf",
+    variable: "--font-dxsitrus",
+})
+
+const DxSitrusItalic = localFont({
+    src: "./fonts/DxSitrus-ExpandedItalic.otf",
+    variable: "--font-dxsitrusi",
+})
+
 export const metadata: Metadata = {
   title: "Camille Bonnet Crevel",
   description: "Created by Devign Inc.",
@@ -25,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${PPEditorialUltraThinItalic.variable} ${Helvetica.variable} ${Helvetica.className} text-base antialiased`}
+        className={`${PPEditorialUltraThinItalic.variable} ${DxSitrus.variable} ${DxSitrusItalic.variable} ${Helvetica.variable} ${Helvetica.className} text-base antialiased`}
       >
         {children}
       </body>
