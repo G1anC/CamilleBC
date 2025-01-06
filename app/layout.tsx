@@ -3,24 +3,15 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 const Helvetica = localFont({
-    src: "./fonts/Helvetica.ttf", // Corrected file extension
-    variable: "--font-helvetica",
+    src: "./fonts/Helvetica.otf", // Corrected file extension
+    variable: "--helvetica",
 });
 
-const PPEditorialUltraThinItalic = localFont({
-    src: "./fonts/ppuli.otf",
-    variable: "--font-ppuli",
+const LeMurmure = localFont({
+    src: "./fonts/LeMurmure.otf",
+    variable: "--murmure",
 })
 
-const DxSitrus = localFont({
-    src: "./fonts/DxSitrus-Expanded.otf",
-    variable: "--font-dxsitrus",
-})
-
-const DxSitrusItalic = localFont({
-    src: "./fonts/DxSitrus-ExpandedItalic.otf",
-    variable: "--font-dxsitrusi",
-})
 
 export const metadata: Metadata = {
   title: "Camille Bonnet Crevel",
@@ -35,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${PPEditorialUltraThinItalic.variable} ${DxSitrus.variable} ${DxSitrusItalic.variable} ${Helvetica.variable} ${Helvetica.className} text-base antialiased`}
+        className={`${LeMurmure.variable} ${Helvetica.variable} ${Helvetica.className} text-base antialiased`}
       >
         {children}
       </body>

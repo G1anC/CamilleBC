@@ -6,17 +6,18 @@
     }
 }
 
-.unlist {
-    clip-path: inset(0 0 0 0);
-    animation: scroll 3200s linear infinite;
+@keyframes reverseScroll {
+    to {
+        transform: translateX(calc(100% + 80px));
+    }
 }
 
-canvas {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 100%;
-    width: 100%;
-    display: block;
+.unlist {
+    clip-path: inset(0 0 0 0);
+    animation: scroll 300s linear infinite;
+}
+
+.reverse-unlist {
+    clip-path: inset(0 0 0 0);
+    animation: reverseScroll 400s linear infinite;
 }
