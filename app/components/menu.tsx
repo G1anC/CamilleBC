@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link';
+import Image from 'next/image';
 import React from 'react';
 import {gsap} from 'gsap';
 import "./menuStyle.css";
@@ -50,28 +51,26 @@ const Menu = () => {
 
     return (
         <>
-            <div className={"w-screen z-10 absolute top-0 z-2 left-0 px-8 p-4 flex items-center justify-center"}>
-                <div className={"w-1/2 flex items-center gap-x-8 justify-start"}>
-                    <Link href='/' className={"text-[20px] head opacity-0"}>
-                        <span className={" font-[family-name:var(--font-ppuli)] text-[#B2F5A5]"}>Cami_</span>BC
+            <div className={"w-screen z-10 absolute top-0 z-2 left-0 p-4 flex items-start"}>
+                <div className={"w-1/2 flex items-center gap-x-4 justify-start"}>
+                    <Link href='/' className={"text-[16px] head opacity-0"}>
+                        CBC_ 
                     </Link>
-                    <Link href='https://g1anc.github.io' className="text-sm head opacity-0">
-                        Made by <I><span className="text-sm tracking-wider">Aven Inc.</span></I>
-                    </Link>
+                    <span className={"text-[#555555]"}>PORTFOLIO</span>
                 </div>
-                <div className={"w-1/2 flex items-center gap-x-8 justify-end"}>
-                    <button className={` hover:scale-110 head opacity-0 rounded-full p-3 px-4 duration-200 transition-all`}
+                <div className={"w-1/2 flex items-start justify-end"}>
+                    <button className={` hover:scale-110 head opacity-0 rounded-full duration-200 transition-all`}
                             onClick={() => setOpen(!open)}
                     >
-                        {!open ? <div className={""}><img width={24} height={24} src={'/menu.svg'} alt={"open"}/></div> : <div className={""}><img width={24} height={24} src={'/cross.svg'} alt={"close"}/></div>}
+                        {!open ? <Image alt='menu' width={24} height={24} src="menu.svg" /> : <Image alt='close' width={18} height={18} src="cross.svg" />}
                     </button>
                 </div>
             </div>
 
             <div className={`w-full h-full z-[8] absolute top-0 left-0 ${open ? "flex" : "hidden"} bg-black`}>
                 <div className={"absolute bottom-4 z-[10] left-0 w-full h-auto flex"}>
-                    <div className={"pl-8 w-full text-start text-xl"}>+41 78 696 37 59</div>
-                    <div className={"pr-8 w-full text-end text-2xl"}>
+                    <div className={"pl-8 w-full text-start text-sm"}>+41 78 696 37 59</div>
+                    <div className={"pr-8 w-full text-end text-sm"}>
                         <div className={""}>+41 78 696 37 59</div>
                         <div className={""}>camillebonnetcrevel@gmail.com</div>
                     </div>
@@ -80,14 +79,14 @@ const Menu = () => {
                     <img src={"/bg.png"} className=" z-[-1] opacity-100 blur-3xl w-full bg object-contain absolute top-0 left-0" id={"bg"} alt={"bg"}>
                     </img>
                 </div>
-                <div className={"w-full h-screen z-40 uppercase flex flex-col items-center gap-y-8 justify-center "}>
+                <div className={"w-full h-screen z-40 uppercase flex flex-col items-center gap-y-8 justify-center font-[family-name:var(--murmure)]"}>
                     <Link href="/" className="link flex items-center justify-center text-center ">Home</Link>
                     <Link href="/works"
                           className="link flex items-center justify-center text-center ">Works</Link>
                     <Link href="/about"
                           className="link flex items-center justify-center text-center  ">About</Link>
                     <Link href="/contact"
-                          className="link flex items-center justify-center text-center font-[family-name:var(--font-ppuli)] text-[#B2F5A5]  capitalize" style={{textShadow: "0px 0px 10px #B2F5A5"}}>Contact</Link>
+                          className="link flex items-center justify-center text-center text-[#B2F5A5] capitalize" style={{textShadow: "0px 0px 10px #B2F5A5"}}>Contact</Link>
                 </div>
             </div>
         </>
