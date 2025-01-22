@@ -1,13 +1,12 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from "react";
-import hoverEffect from "hover-effect";
 import {gsap} from "gsap";
 
 import Menu from "./components/menu";
 import "./scroll.css";
 
-const Intro = ({intro, setIntro}: {intro: boolean, setIntro: React.Dispatch<React.SetStateAction<boolean>>}) => {
+const Intro = ({setIntro}: {setIntro: React.Dispatch<React.SetStateAction<boolean>>}) => {
     const camille= "CAMILLE".split("");
     const bonnet = "BONNET-CREVEL".split("");
     const titleContainer = useRef(null);
@@ -41,6 +40,7 @@ const Intro = ({intro, setIntro}: {intro: boolean, setIntro: React.Dispatch<Reac
             <div className=" flex items-center justify-center absolute h-screen w-screen top-0 left-0 z-10">
                 <div className="box w-80 h-44 bg-[#0D0D0D] rounded-xl p-4 opacity-0">
                     <div className="relative border border-[#252525] h-full w-full p-4 flex items-center justify-center">
+
                             <div className="NW top-0 left-0 aspect-square w-6 border-t border-l border-white absolute"></div>
                             <div className="NE top-0 right-0 aspect-square w-6 border-t border-r border-white absolute"></div>
                             <div className="SW bottom-0 left-0 aspect-square w-6 border-b border-l border-white absolute"></div>
@@ -116,7 +116,7 @@ export default function Home() {
 
     return (
         <div className="h-screen w-screen relative overflow-hidden bg-[#0D0D0D] font-[family-name:var(--font-helvetica)]">
-            {intro && <Intro intro={intro} setIntro={setIntro} />}
+            {intro && <Intro setIntro={setIntro} />}
             {!intro && 
                         <Menu />
 
