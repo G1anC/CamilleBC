@@ -23,10 +23,10 @@ const Intro = ({setIntro}: {setIntro: React.Dispatch<React.SetStateAction<boolea
         pageTl.play();
 
         hoverTl
-            .to(".NW", { duration: 0.1, ease: "power2.out", top: "11px", left: "11px", width: "48px" }, 0)
-            .to(".NE", { duration: 0.1, ease: "power2.out", top: "11px", right: "11px", width: "48px" }, 0)
-            .to(".SW", { duration: 0.1, ease: "power2.out", bottom: "11px", left: "11px", width: "48px" }, 0)
-            .to(".SE", { duration: 0.1, ease: "power2.out", bottom: "11px", right: "11px", width: "48px" }, 0)
+            .to(".NW", { duration: 0.1, ease: "power2.out", top: "11px", left: "11px", width: "32px" }, 0)
+            .to(".NE", { duration: 0.1, ease: "power2.out", top: "11px", right: "11px", width: "32px" }, 0)
+            .to(".SW", { duration: 0.1, ease: "power2.out", bottom: "11px", left: "11px", width: "32px" }, 0)
+            .to(".SE", { duration: 0.1, ease: "power2.out", bottom: "11px", right: "11px", width: "32px" }, 0)
 
             .to(".wei", { height: "0px", duration: 0.1, ease: "power2.out" }, 0)
             .to(".hei", { width: "0px", duration: 0.1, ease: "power2.out" }, 0)
@@ -46,7 +46,7 @@ const Intro = ({setIntro}: {setIntro: React.Dispatch<React.SetStateAction<boolea
                             <div className="SW bottom-0 left-0 aspect-square w-6 border-b border-l border-white absolute"></div>
                             <div className="SE bottom-0 right-0 aspect-square w-6 border-b border-r border-white absolute"></div>
 
-                            <img alt="camille" src="/camille.png" className="me h-full w-full object-cover top-3 left-3 absolute opacity-65 blur-sm" style={{
+                            <img alt="camille" src="/camille.png" className="me h-full w-full object-cover top-4 left-4 absolute opacity-65 blur-sm" style={{
                                 height: "calc(100% - 24px)",
                                 width: "calc(100% - 24px)",
                             }}></img>
