@@ -28,7 +28,7 @@ export default function Northernlights() {
                            onMouseLeave={() => {
                                hoverTl.reverse()
                            }}>
-                        <source src="/nothernlights.mp4" type="video/mp4" />
+                        <source src="/northernlights.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
                 </div>
