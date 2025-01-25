@@ -142,6 +142,7 @@ export default function Home() {
 
     return (
 <<<<<<< HEAD
+<<<<<<< HEAD
         <div className="h-screen w-screen relative overflow-hidden bg-[#0D0D0D] text-base font-[family-name:var(--font-helvetica)]">
             {intro && <Intro intro={intro} setIntro={setIntro} />}
             {!intro &&
@@ -189,6 +190,8 @@ export default function Home() {
                     </div>
                 </>
 =======
+=======
+>>>>>>> fc4287b20aadbaafaac9559569ee5cdc0f8d0c4a
         <div className="h-screen w-screen relative overflow-hidden bg-[#0D0D0D] font-[family-name:var(--font-helvetica)]">
             {intro && <Intro setIntro={setIntro} />}
             {!intro && 
