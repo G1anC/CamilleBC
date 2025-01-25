@@ -6,14 +6,8 @@ import React from 'react';
 import {gsap} from 'gsap';
 import "./menuStyle.css";
 
-
-const I = ({children}: {children: React.ReactNode}) => <span className="font-[family-name:var(--font-ppuli)] font-extralight text-xl ">{children}</span>;
-
-
-
 const Menu = () => {
     const [open, setOpen] = React.useState(false);
-    const links = document.querySelectorAll(".link");
 
     React.useEffect(() => {
         const links = document.querySelectorAll(".link") as NodeListOf<Element>;
@@ -75,10 +69,10 @@ const Menu = () => {
                         <div className={""}>camillebonnetcrevel@gmail.com</div>
                     </div>
                 </div>
-                <div className={"absolute top-0 left-0 w-full h-full"}>
-                    <img src={"/bg.png"} className=" z-[-1] opacity-100 blur-3xl w-full bg object-contain absolute top-0 left-0" id={"bg"} alt={"bg"}>
-                    </img>
-                </div>
+                {/*<div className={"absolute top-0 left-0 w-full h-full"}>*/}
+                {/*    <img src={"/bg.png"} className=" z-[-1] opacity-100 blur-3xl w-full bg object-contain absolute top-0 left-0" id={"bg"} alt={"bg"}>*/}
+                {/*    </img>*/}
+                {/*</div>*/}
                 <div className={"w-full h-screen z-40 uppercase flex flex-col items-center gap-y-8 justify-center font-[family-name:var(--murmure)]"}>
                     <Link href="/" className="link flex items-center justify-center text-center ">Home</Link>
                     <Link href="/works"
