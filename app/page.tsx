@@ -112,16 +112,84 @@ export default function Home() {
 
     const [intro, setIntro] = useState(true);
 
-    
+    const imageSlider = [
+        {
+            index: 1,
+            name: "PORTFOLIO _1",
+            image: "/portfolio.png",
+        },
+        {
+            index: 2,
+            name: "Made by Aven Inc. _2",
+            image: "/aven.png",
+        },
+        {
+            index: 3,
+            name: "Using GSAP _3",
+            image: "/camille.png",
+        },
+        {
+            index: 4,
+            name: "React _4",
+            image: "/react.png",
+        },
+        {
+            index: 5,
+            name: "Next.js _5",
+            image: "/next.png",
+        },
+    ]
 
     return (
-        <div className="h-screen w-screen relative overflow-hidden bg-[#0D0D0D] font-[family-name:var(--font-helvetica)]">
+        <div className="h-screen w-screen relative overflow-hidden bg-[#0D0D0D] text-base font-[family-name:var(--font-helvetica)]">
             {intro && <Intro intro={intro} setIntro={setIntro} />}
-            {!intro && 
-                        <Menu />
+            {!intro &&
+                <>
+                    <Menu />
+                    <div className={"flex h-full w-full"}>
+                        <div className={"w-1/2 h-full flex items-center justify-center"}>
+                            <div className={"w-2/3 flex gap-x-16 px-32"}>
+                                <div className={"flex flex-col justify-center gap-y-7 text-6xl h-80"}>
+                                    <div>CAMILLE</div>
+                                    <div>BONNET</div>
+                                    <div>CREVEL</div>
+                                </div>
+                                <div className={"text-end w-32 h-80 flex justify-center items-center"}>
+                                    Welcome to my Portfolio!
+                                    I’m a 21 years old designer living in Berlin Germany. Explore my projects and have fun while you’re there :)
+                                </div>
+                            </div>
+                            <div className={"w-1/3 pr-8 items-end justif-end"}>
+                                <div className={"flex flex-col gap-y-2 justify-center items-end text-end"}>
+                                    <div className={"opacity-10"}>PORTFOLIO  _1</div>
+                                    <div className={"opacity-30"}>Made by Aven Inc. _2</div>
+                                    <div className={"opacity-100"}>Using GSAP _3</div>
+                                    <div className={"opacity-30"}>React _4</div>
+                                    <div className={"opacity-10"}>& Next.js _5</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div className={"w-1/2 h-full flex items-center justify-start pr-32"}>
+                            <div className={"h-full w-full flex items-center justify-center border-x border-[#252525]"}>
+                                <div className={"w-full aspect-[4/3] relative p-8 border-y border-[#252525]"}>
+                                    <div
+                                        className="NW top-0 left-0 aspect-square w-32 border-t border-l border-white absolute"></div>
+                                    <div
+                                        className="NE top-0 right-0 aspect-square w-32 border-t border-r border-white absolute"></div>
+                                    <div
+                                        className="SW bottom-0 left-0 aspect-square w-32 border-b border-l border-white absolute"></div>
+                                    <div
+                                        className="SE bottom-0 right-0 aspect-square w-32 border-b border-r border-white absolute"></div>
+                                    <img alt="camille" src="/camille.png" className={"blur-sm opacity-65"}/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </>
 
             }
         </div>
-                       
+
     );
 }
